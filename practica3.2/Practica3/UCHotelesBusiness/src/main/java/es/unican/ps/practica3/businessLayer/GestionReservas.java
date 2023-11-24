@@ -3,6 +3,7 @@ package es.unican.ps.practica3.businessLayer;
 import java.sql.Date;
 import java.util.List;
 
+import es.unican.ps.practica3.daoLayer.IHotelesDAO;
 import es.unican.ps.practica3.daoLayer.IReservasDAO;
 import es.unican.ps.practica3.entities.DatosCliente;
 import es.unican.ps.practica3.entities.DatosPago;
@@ -17,6 +18,9 @@ public class GestionReservas implements IGestionReservas{
 	
 	@EJB
 	private IReservasDAO reservasDAO;
+	
+	@EJB
+	private IHotelesDAO hotelesDAO;
 
 	@Override
 	public int reservar(List<ReservaTipoHabitacion> tipos, DatosCliente cliente, DatosPago pago) {
