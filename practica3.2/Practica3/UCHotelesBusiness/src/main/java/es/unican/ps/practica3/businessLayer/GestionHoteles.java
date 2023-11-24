@@ -35,7 +35,7 @@ public class GestionHoteles implements IGestionHoteles, IConsultarHabitacion{
 
 	@Override
 	public List<TipoHabitacion> consultarDisponibilidad(String parametro, Date ini, Date fin, Hotel hotel) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 }
