@@ -2,8 +2,11 @@ package es.unican.ps.practica3.entities;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Entity;
+
 @SuppressWarnings("serial")
 
+@Entity
 public class DatosCliente implements Serializable{
 
 	private String dni;

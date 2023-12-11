@@ -2,7 +2,11 @@ package es.unican.ps.practica3.entities;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Entity;
+
 @SuppressWarnings("serial")
+
+@Entity
 public class ReservaTipoHabitacion implements Serializable{
 
 	private int numHabitaciones;

@@ -18,7 +18,7 @@ public class GestionHoteles implements IGestionHoteles, IConsultarHabitacion{
 	@Override
 	public List<Hotel> consultarHoteles() {
 		// TODO Auto-generated method stub
-		return null;
+		return hotelesDAO.getHoteles();
 	}
 
 	@Override
@@ -33,9 +33,21 @@ public class GestionHoteles implements IGestionHoteles, IConsultarHabitacion{
 		return false;
 	}
 
+	//METODO PRINCIPAL CASO DE USO "CONSULTAR DISPONIBILIDAD"
 	@Override
-	public List<TipoHabitacion> consultarDisponibilidad(String parametro, Date ini, Date fin, Hotel hotel) {
+	public List<Hotel> consultarDisponibilidad(String nombreHotel, String localidad) {
+		List<Hotel> lista = null;
+		if (nombreHotel != null) {
+			lista.add(hotelesDAO.getHotel(nombreHotel));
+		}
+		else if (nombreHotel == null && localidad != null){
+			List<Hotel> hoteles = hotelesDAO.getHotelesLocalidad(localidad);
+		}	
 		
-		return null;
+		return lista;
+	}
+	//LA INTERFAZ LLAMARÁ A ESTE MÉTODO IDENTIFICANDO LA FILA EN EL XML
+	public List<TipoHabitacion> verDisponibilidad(Hotel h, Date ini, Date fin){
+		return h.getHabitaciones(); //de momento simpre hay maxima disponibilidad
 	}
 }

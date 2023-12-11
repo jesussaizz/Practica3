@@ -3,8 +3,12 @@ package es.unican.ps.practica3.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+
 
 @SuppressWarnings("serial")
+
+@Entity
 public class Hotel implements Serializable{
 	
 	private String nombre;

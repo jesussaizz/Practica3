@@ -2,7 +2,11 @@ package es.unican.ps.practica3.entities;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Entity;
+
 @SuppressWarnings("serial")
+
+@Entity
 public class TipoHabitacion implements Serializable{
 
 	private String id;

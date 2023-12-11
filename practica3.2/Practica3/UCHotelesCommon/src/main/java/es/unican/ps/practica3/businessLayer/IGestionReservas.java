@@ -4,9 +4,11 @@ import java.sql.Date;
 import java.util.List;
 
 import es.unican.ps.practica3.entities.*;
+import jakarta.ejb.Local;
 
+@Local
 public interface IGestionReservas {
-	public int reservar(List<ReservaTipoHabitacion> tipos, DatosCliente cliente, DatosPago pago);
+	public int reservar(List<ReservaTipoHabitacion> tipos, Date ini, Date fin, DatosCliente cliente, DatosPago pago);
 	public Reserva modificarReserva(Reserva reserva);
 	public Reserva consultarReserva(int id);
 	public boolean cancelarReserva(Reserva reserva);

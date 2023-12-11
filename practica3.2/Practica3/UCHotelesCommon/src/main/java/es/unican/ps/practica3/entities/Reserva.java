@@ -4,9 +4,18 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 @SuppressWarnings("serial")
+
+@Entity
 public class Reserva implements Serializable{
 	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	private Date fechaEntrada;
@@ -21,11 +30,9 @@ public class Reserva implements Serializable{
 	
 	private List<ReservaTipoHabitacion> reservaTipoHabitaciones;
 
-	public Reserva(int id, Date fechaEntrada, Date fechaSalida, double importe, DatosCliente cliente, DatosPago pago) {
-		this.id = id;
+	public Reserva(Date fechaEntrada, Date fechaSalida, DatosCliente cliente, DatosPago pago, List<ReservaTipoHabitacion> r) {
 		this.fechaEntrada = fechaEntrada;
 		this.fechaSalida = fechaSalida;
-		this.importe = importe;
 		this.cliente = cliente;
 		this.pago = pago;
 	}
