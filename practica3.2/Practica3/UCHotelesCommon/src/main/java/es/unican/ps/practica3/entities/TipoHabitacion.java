@@ -3,12 +3,14 @@ package es.unican.ps.practica3.entities;
 import java.io.Serializable;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @SuppressWarnings("serial")
 
 @Entity
 public class TipoHabitacion implements Serializable{
 
+	@Id
 	private String id;
 	
 	private double precioPorNoche;

@@ -2,13 +2,19 @@ package es.unican.ps.practica3.entities;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+import jakarta.persistence.Table;
 
 @SuppressWarnings("serial")
 
 @Entity
+@Table(name="Tarjetas")
 public class DatosPago implements Serializable{
 	
+	@Id
 	private int numTarjeta;
 	
 	private int cvc;
@@ -17,6 +23,7 @@ public class DatosPago implements Serializable{
 	
 	private int anoCaducidad;
 	
+	@Embedded
 	private TipoTarjeta tipo;
 	
 	public DatosPago(int numTarjeta, int cvc, int mesCaducidad, int anoCaducidad, TipoTarjeta tipo) {

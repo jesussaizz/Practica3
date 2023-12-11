@@ -4,21 +4,31 @@ import java.io.Serializable;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 
 @SuppressWarnings("serial")
 
 @Entity
+@Table(name="Hoteles")
 public class Hotel implements Serializable{
 	
+	@Id
 	private String nombre;
 	
 	private String direccion;
 	
 	private String localidad;
 	
+	@OneToMany
+	@JoinColumn(name="hotel_fk")
 	private List<Reserva> reservas;
 	
+	@OneToMany
+	@JoinColumn(name="hotel_fk")
 	private List<TipoHabitacion> habitaciones;
 
 

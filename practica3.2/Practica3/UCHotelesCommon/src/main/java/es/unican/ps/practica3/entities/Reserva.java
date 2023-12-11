@@ -8,10 +8,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @SuppressWarnings("serial")
 
 @Entity
+@Table(name="Reservas")
 public class Reserva implements Serializable{
 	
 	@Id
@@ -24,10 +29,16 @@ public class Reserva implements Serializable{
 
 	private double importe;
 	
+	@OneToOne
+	@JoinColumn(name="cliente_fk")
 	private DatosCliente cliente;
 	
+	@OneToOne
+	@JoinColumn(name="tarjeta_fk")
 	private DatosPago pago;
 	
+	@OneToMany
+	@JoinColumn(name="reserva_fk")
 	private List<ReservaTipoHabitacion> reservaTipoHabitaciones;
 
 	public Reserva(Date fechaEntrada, Date fechaSalida, DatosCliente cliente, DatosPago pago, List<ReservaTipoHabitacion> r) {

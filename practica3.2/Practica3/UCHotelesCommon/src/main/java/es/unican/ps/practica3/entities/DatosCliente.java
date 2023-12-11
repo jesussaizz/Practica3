@@ -3,12 +3,16 @@ package es.unican.ps.practica3.entities;
 import java.io.Serializable;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @SuppressWarnings("serial")
 
 @Entity
+@Table(name="Clientes")
 public class DatosCliente implements Serializable{
 
+	@Id
 	private String dni;
 	
 	private String nombre;
