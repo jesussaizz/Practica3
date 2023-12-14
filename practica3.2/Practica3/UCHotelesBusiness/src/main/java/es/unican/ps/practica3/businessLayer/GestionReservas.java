@@ -12,8 +12,9 @@ import es.unican.ps.practica3.entities.Reserva;
 import es.unican.ps.practica3.entities.ReservaTipoHabitacion;
 import es.unican.ps.practica3.entities.TipoHabitacion;
 import jakarta.ejb.EJB;
+import jakarta.ejb.Remove;
+import jakarta.ejb.Stateful;
 import jakarta.ejb.Stateless;
-
 
 @Stateless
 public class GestionReservas implements IGestionReservas{
@@ -21,38 +22,46 @@ public class GestionReservas implements IGestionReservas{
 	@EJB
 	private IReservasDAO reservasDAO;
 
-	@Override
-	public int reservar(List<ReservaTipoHabitacion> tipos, Date ini, Date fin, DatosCliente cliente, DatosPago pago) {		
-		 
-		 //Guardar reserva
-		 Reserva res = new Reserva(ini, fin, cliente, pago, tipos);
-		 reservasDAO.creaReserva(res);
-		 
-		 //Mostrar identificador de la reserva
-         System.out.println(res.getId());
+	@EJB
+	private IHotelesDAO hotelesDAO;
+	
+	//METODO @REMOVE PARA ACABAR LA INTERACCION CON STATEFUL
+	@Remove
+	public int reservar(List<ReservaTipoHabitacion> tipos, Date ini, Date fin, DatosCliente cliente, DatosPago pago, Hotel h) {		
+		double precio = 0;
+		for(ReservaTipoHabitacion r:tipos) {
+			precio += r.getTipoHabitacion().getPrecioPorNoche() * r.getNumHabitaciones();
+		}
+		
+		//Guardar reserva
+		Reserva res = new Reserva(ini, fin, cliente, pago, tipos);
+		reservasDAO.creaReserva(res);
+		
+		h.anhadeReservas(res);
+		hotelesDAO.modificarHotel(h);
+		
+		//Mostrar identificador de la reserva
+        System.out.println(res.getId());
+        System.out.println(precio);
 
-         return res.getId();
+        return res.getId();
 	}
 	
-	@Override
 	public Reserva modificarReserva(Reserva reserva) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Reserva consultarReserva(int id) {
 		// TODO Auto-generated method stub
 		return reservasDAO.getReserva(id);
 	}
 
-	@Override
 	public boolean cancelarReserva(Reserva reserva) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public List<Reserva> consultarReservas(Date ini, Date fin) {
 		// TODO Auto-generated method stub
 		return reservasDAO.getReservas();

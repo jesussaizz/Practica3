@@ -8,7 +8,7 @@ import jakarta.ejb.Local;
 
 @Local
 public interface IGestionReservas {
-	public int reservar(List<ReservaTipoHabitacion> tipos, Date ini, Date fin, DatosCliente cliente, DatosPago pago);
+	public int reservar(List<ReservaTipoHabitacion> tipos, Date ini, Date fin, DatosCliente cliente, DatosPago pago, Hotel h);
 	public Reserva modificarReserva(Reserva reserva);
 	public Reserva consultarReserva(int id);
 	public boolean cancelarReserva(Reserva reserva);

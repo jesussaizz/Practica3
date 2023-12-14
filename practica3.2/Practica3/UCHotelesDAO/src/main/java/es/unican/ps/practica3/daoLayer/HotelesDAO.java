@@ -4,6 +4,7 @@ import java.util.List;
 
 import es.unican.ps.practica3.entities.Hotel;
 import es.unican.ps.practica3.entities.Reserva;
+import jakarta.ejb.Stateful;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityManager;

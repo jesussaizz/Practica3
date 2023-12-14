@@ -3,6 +3,7 @@ package es.unican.ps.practica3.daoLayer;
 import java.util.List;
 
 import es.unican.ps.practica3.entities.Reserva;
+import jakarta.ejb.Stateful;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityManager;
