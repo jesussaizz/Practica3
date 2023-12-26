@@ -26,7 +26,7 @@ public class GestionReservas implements IGestionReservas{
 	private IHotelesDAO hotelesDAO;
 	
 	//METODO @REMOVE PARA ACABAR LA INTERACCION CON STATEFUL
-	@Remove
+	//@Remove
 	public int reservar(List<ReservaTipoHabitacion> tipos, Date ini, Date fin, DatosCliente cliente, DatosPago pago, Hotel h) {		
 		double precio = 0;
 		for(ReservaTipoHabitacion r:tipos) {

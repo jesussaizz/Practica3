@@ -6,10 +6,12 @@ import es.unican.ps.practica3.entities.Hotel;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 @Stateless
 public class HotelesDAO implements IHotelesDAO{
 
+	@PersistenceContext(unitName = "UCHotelesPU")
 	private EntityManager em;
 	
 	@Override
