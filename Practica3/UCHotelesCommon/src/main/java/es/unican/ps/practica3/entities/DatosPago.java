@@ -26,6 +26,10 @@ public class DatosPago implements Serializable{
 	@Embedded
 	private TipoTarjeta tipo;
 	
+	public DatosPago() {
+		
+	}
+	
 	public DatosPago(int numTarjeta, int cvc, int mesCaducidad, int anoCaducidad, TipoTarjeta tipo) {
 		this.numTarjeta = numTarjeta;
 		this.cvc = cvc;

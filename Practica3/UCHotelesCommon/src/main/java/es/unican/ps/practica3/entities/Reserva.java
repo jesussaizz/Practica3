@@ -41,6 +41,10 @@ public class Reserva implements Serializable{
 	@JoinColumn(name="reserva_fk")
 	private List<ReservaTipoHabitacion> reservaTipoHabitaciones;
 
+	public Reserva() {
+		
+	}
+	
 	public Reserva(Date fechaEntrada, Date fechaSalida, DatosCliente cliente, DatosPago pago, List<ReservaTipoHabitacion> r) {
 		this.fechaEntrada = fechaEntrada;
 		this.fechaSalida = fechaSalida;

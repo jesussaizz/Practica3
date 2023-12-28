@@ -24,14 +24,17 @@ public class Hotel implements Serializable{
 	private String localidad;
 	
 	@OneToMany
-	@JoinColumn(name="hotel_fk")
+	@JoinColumn(name="hotel_reservas_fk")
 	private List<Reserva> reservas;
 	
 	@OneToMany
-	@JoinColumn(name="hotel_fk")
+	@JoinColumn(name="hotel_habitaciones_fk")
 	private List<TipoHabitacion> habitaciones;
 
-
+	public Hotel() {
+		
+	}
+	
 	public Hotel(String nombre, String direccion, String localidad) {
 		this.nombre = nombre;
 		this.direccion = direccion;
@@ -77,5 +80,19 @@ public class Hotel implements Serializable{
 	public void anhadeHabitaciones(TipoHabitacion habitacion) {
 		this.habitaciones.add(habitacion);
 	}
+	
+	public TipoHabitacion obtenerTipoHabitacionPorNombre(String nombreTipoHabitacion) {
+	    
+	    // Iterar sobre la lista para encontrar el TipoHabitacion con el nombre dado
+	    for (TipoHabitacion habitacion : habitaciones) {
+	        if (habitacion.getTipo().equals(nombreTipoHabitacion)) {
+	            return habitacion;
+	        }
+	    }
+
+	    // Si no se encuentra ningún tipo de habitación con el nombre dado, puedes devolver null o lanzar una excepción, según tus necesidades.
+	    return null;
+	}
+
 	
 }

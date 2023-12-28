@@ -6,10 +6,10 @@
 	https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd" version="3.0">
 
 
-	<persistence-unit name="UCHotelesPU" transaction-type=“JTA">
+	<persistence-unit name="UCHotelesPU" transaction-type="JTA">
 		<!-- EclipseLink -->
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		<jta-data-source>jdbc/hoteles</jta-data-source>
+		<jta-data-source>jdbc/uchoteles</jta-data-source>
 		<properties>
 			<property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>
 		</properties>

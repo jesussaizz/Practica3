@@ -11,24 +11,28 @@ import jakarta.persistence.Id;
 public class TipoHabitacion implements Serializable{
 
 	@Id
-	private String id;
+	private String tipo;
 	
 	private double precioPorNoche;
 	
 	private int disponibles;
 
-	public TipoHabitacion(String id, double precioPorNoche, int disponibles) {
-		this.id = id;
+	public TipoHabitacion() {
+		
+	}
+	
+	public TipoHabitacion(String tipo, double precioPorNoche, int disponibles) {
+		this.tipo = tipo;
 		this.precioPorNoche = precioPorNoche;
 		this.disponibles = disponibles;
 	}
 
-	public String getId() {
-		return id;
+	public String getTipo() {
+		return tipo;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	public double getPrecioPorNoche() {

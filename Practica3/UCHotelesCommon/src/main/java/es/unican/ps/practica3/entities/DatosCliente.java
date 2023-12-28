@@ -19,6 +19,10 @@ public class DatosCliente implements Serializable{
 	
 	private String email;
 	
+	public DatosCliente() {
+		
+	}
+	
 	public DatosCliente(String dni, String nombre, String email) {
 		this.dni = dni;
 		this.nombre = nombre;

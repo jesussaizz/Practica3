@@ -32,6 +32,13 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<type>ejb</type>
 	 </dependency>	
+	 <!-- Dependencia para el conector MySQL -->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.30</version> 
+        <scope>runtime</scope>
+    </dependency>
 	</dependencies>
 	
 	<build>

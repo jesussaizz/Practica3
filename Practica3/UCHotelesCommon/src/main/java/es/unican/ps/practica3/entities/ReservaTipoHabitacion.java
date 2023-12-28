@@ -24,6 +24,10 @@ public class ReservaTipoHabitacion implements Serializable{
 	@JoinColumn(name="tipoHabitacion_fk")
 	private TipoHabitacion tipoHabitacion;
 
+	public ReservaTipoHabitacion() {
+		
+	}
+	
 	public ReservaTipoHabitacion(int numHabitaciones, TipoHabitacion tipoHabitacion) {
 		this.numHabitaciones = numHabitaciones;
 		this.tipoHabitacion = tipoHabitacion;
