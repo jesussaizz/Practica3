@@ -7,7 +7,7 @@ import jakarta.persistence.Entity;
 
 @SuppressWarnings("serial")
 
-@Embeddable
+
 public enum TipoTarjeta implements Serializable{
 	MASTERCARD, VISA, AMERICAN_EXPRESS
 }

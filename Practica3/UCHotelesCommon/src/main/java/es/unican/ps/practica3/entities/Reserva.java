@@ -9,9 +9,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @SuppressWarnings("serial")
 
@@ -23,17 +26,19 @@ public class Reserva implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@Temporal(TemporalType.DATE)
 	private Date fechaEntrada;
 	
+	@Temporal(TemporalType.DATE)
 	private Date fechaSalida;
 
 	private double importe;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="cliente_fk")
 	private DatosCliente cliente;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="tarjeta_fk")
 	private DatosPago pago;
 	

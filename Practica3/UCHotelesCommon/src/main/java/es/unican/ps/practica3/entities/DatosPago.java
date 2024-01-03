@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 
 import jakarta.persistence.Table;
@@ -23,7 +25,7 @@ public class DatosPago implements Serializable{
 	
 	private int anoCaducidad;
 	
-	@Embedded
+	@Enumerated(EnumType.STRING)
 	private TipoTarjeta tipo;
 	
 	public DatosPago() {
