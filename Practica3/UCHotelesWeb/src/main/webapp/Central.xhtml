@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html">
-	
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html">
+
 <h:head>
     <title>Central de Reservas</title>
     <style>
@@ -12,29 +14,28 @@
         .form-item {
             margin-bottom: 10px;
         }
+
+        .form-label {
+            display: inline-block;
+            width: 100px;
+        }
     </style>
 </h:head>
 
 <h:body>
     <h1>Central de Reservas</h1>
 
-    <div class="form-container">
-        <h:form>
-            <div class="form-item">
-                <h:outputLabel for="nombreHotel">Nombre del Hotel:</h:outputLabel>
-                <h:inputText id="nombreHotel" value="#{CentralBean.nombreHotel}"/>
-            </div>
+    <h:form id="usuarioForm" styleClass="form-container">
+        <h:outputLabel value="Nombre del Hotel" styleClass="form-label" />
+        <h:inputText id="nombreHotel" value="#{centralBean.nombreHotel}" />
+        
 
-            <div class="form-item">
-                <h:outputLabel for="localidad">Localidad:</h:outputLabel>
-                <h:inputText id="localidad" value="#{CentralBean.localidad}"/>
-            </div>
+        <h:outputLabel value="Localidad" styleClass="form-label" />
+        <h:inputText id="localidad" value="#{centralBean.localidad}" />
+       
 
-            <div class="form-item">
-                <h:commandButton value="Buscar" action="#{CentralBean.buscar}" />                         
-            </div>
-        </h:form>
-    </div>
+        <h:commandButton value="Buscar" action="#{centralBean.buscar}" />
+    </h:form>
 </h:body>
 
 </html>

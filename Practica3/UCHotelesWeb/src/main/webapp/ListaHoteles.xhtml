@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jsp/jstl/core"
+ xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html">
 
 <h:head>
         <title>Lista de Hoteles</title>
@@ -31,15 +32,17 @@
             <h:form>
                 <div class="form-item">
                     <h:outputLabel for="fechaEntrada">Fecha de Entrada:</h:outputLabel>
-                    <h:inputText id="fechaEntrada" value="#{CentralBean.fechaEntrada}" required="true"/>
+                    <h:inputText id="fechaEntrada" value="#{centralBean.fechaEntrada}" required="true"/>
+                    <h:message for="fechaEntrada" style="color:red" />
                 </div>
                 <div class="form-item">
                     <h:outputLabel for="fechaSalida">Fecha de Salida:</h:outputLabel>
-                    <h:inputText id="fechaSalida" value="#{CentralBean.fechaSalida}" required="true"/>
+                    <h:inputText id="fechaSalida" value="#{centralBean.fechaSalida}" required="true"/>
+                    <h:message for="fechaSalida" style="color:red" />
                 </div>            
             </h:form>
         </div>
-        <h:dataTable value="#{CentralBean.hoteles}" var="hotel">
+        <h:dataTable value="#{centralBean.hoteles}" var="hotel">
             <h:column>
                 <f:facet name="header">Hotel</f:facet>
                 #{hotel.nombre}
@@ -53,8 +56,8 @@
                 #{hotel.direccion}
             </h:column>
             <h:column>
-                <f:facet name="header">Ver Disponibilidad</f:facet>
-                <h:commandButton value="Ver Disponibilidad" action="#{CentralBean.verDisponibilidad(hotel)}" />
+              	<f:facet name="header">Ver Disponibilidad</f:facet>
+                <h:commandButton value="Ver Disponibilidad" action="#{centralBean.verDisponibilidad(hotel)}" />
             </h:column>
         </h:dataTable>
     </h:body>

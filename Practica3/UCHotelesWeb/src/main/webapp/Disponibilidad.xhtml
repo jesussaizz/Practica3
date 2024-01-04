@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+ xmlns:h="http://xmlns.jcp.org/jsf/html">
 
 <h:head>
     <title>Disponibilidad de habitaciones</title>
@@ -42,21 +43,21 @@
                     <th>PrecioHabitacion</th>
                     <th>Número de habitaciones</th>
                 </tr>
-                <c:forEach var="habitacion" items="#{CentralBean.habitaciones}">
+                <c:forEach var="habitacion" items="#{centralBean.habitaciones}">
                     <tr>
                     	
                         <td>#{habitacion.tipo}</td>
                         <td>#{habitacion.disponibles}</td>
                         <td>#{habitacion.precioPorNoche}</td>
                         <td>
-                            <h:inputText id="numHabitaciones_#{habitacion.tipo}" value="#{CentralBean.habitacionReserva[habitacion.tipo]}" />
+                            <h:inputText id="numHabitaciones_#{habitacion.tipo}" value="#{centralBean.habitacionReserva[habitacion.tipo]}" />
                         </td>
                     </tr>
                 </c:forEach>
             </table>
 
             <div class="form-item">
-                <h:commandButton value="Reservar" action="#{CentralBean.introducirDatosReserva}" />
+                <h:commandButton value="Reservar" action="#{centralBean.introducirDatosReserva}" />
             </div>
         </h:form>
     </div>

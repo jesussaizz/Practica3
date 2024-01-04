@@ -16,9 +16,11 @@ import es.unican.ps.practica3.entities.DatosPago;
 import es.unican.ps.practica3.entities.Hotel;
 import es.unican.ps.practica3.entities.ReservaTipoHabitacion;
 import es.unican.ps.practica3.entities.TipoHabitacion;
+
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
+
 
 @Named
 @RequestScoped
@@ -39,9 +41,9 @@ public class CentralBean {
 	private Map<String, String> habitacionReserva = new HashMap<>();
 	
 	//FACELET DATOSRESERVA.XHTML
-	private String nombreReserva;
-	private String dniReserva;
-	private String numeroTarjetaReserva;
+	private String nombreReserva = "";
+	private String dniReserva = "";
+	private String numeroTarjetaReserva = "";
 	List<ReservaTipoHabitacion> reservasTipoHabitacion = new ArrayList<>();
 	private int codigoReserva;
 	
@@ -55,18 +57,23 @@ public class CentralBean {
 	@EJB
 	private IGestionReservas gestionReservas;
 	
+	private Hotel prueba = new Hotel("Hotel Prueba", "Barrio Prueba", "Santander");
+	
+	
 	public CentralBean() {
 		
 	}
 	
 	public String buscar() {
 		hoteles = consultarHabitacion.consultarDisponibilidad(nombreHotel, localidad);
+		hoteles.add(prueba);
 		return "ListaHoteles.xhtml";
 	}
 	
 	public String verDisponibilidad(Hotel hotel) {
 		hotelPinchado = hotel;
 		habitaciones = consultarHabitacion.verDisponibilidad(hotel, this.getFechaEntradaDate(), this.getFechaSalidaDate());
+		//habitaciones = consultarHabitacion.verDisponibilidad(prueba, this.getFechaEntradaDate(), this.getFechaSalidaDate());
 		return "Disponibilidad.xhtml";
 	}
 	
@@ -100,11 +107,11 @@ public class CentralBean {
 	}
 	
     public Date getFechaEntradaDate() {
-        return new java.sql.Date(convertirFechaStringADate(fechaEntrada).getTime());
+        return (Date) convertirFechaStringADate(fechaEntrada);
     }
 
     public Date getFechaSalidaDate() {
-        return new java.sql.Date(convertirFechaStringADate(fechaSalida).getTime());
+        return (Date) convertirFechaStringADate(fechaSalida);
     }
 
 	
@@ -118,5 +125,136 @@ public class CentralBean {
             return null; // O lanzar una excepción personalizada
         }
     }
+
+	public String getLocalidad() {
+		return localidad;
+	}
+
+	public String getNombreHotel() {
+		return nombreHotel;
+	}
+
+	public List<Hotel> getHoteles() {
+		return hoteles;
+	}
+
+	public String getFechaEntrada() {
+		return fechaEntrada;
+	}
+
+	public String getFechaSalida() {
+		return fechaSalida;
+	}
+
+	public Hotel getHotelPinchado() {
+		return hotelPinchado;
+	}
+
+	public List<TipoHabitacion> getHabitaciones() {
+		return habitaciones;
+	}
+
+	public Map<String, String> getHabitacionReserva() {
+		return habitacionReserva;
+	}
+
+	public String getNombreReserva() {
+		return nombreReserva;
+	}
+
+	public String getDniReserva() {
+		return dniReserva;
+	}
+
+	public String getNumeroTarjetaReserva() {
+		return numeroTarjetaReserva;
+	}
+
+	public List<ReservaTipoHabitacion> getReservasTipoHabitacion() {
+		return reservasTipoHabitacion;
+	}
+
+	public int getCodigoReserva() {
+		return codigoReserva;
+	}
+
+	public IConsultarHabitacion getConsultarHabitacion() {
+		return consultarHabitacion;
+	}
+
+	public IGestionHoteles getGestionHoteles() {
+		return gestionHoteles;
+	}
+
+	public IGestionReservas getGestionReservas() {
+		return gestionReservas;
+	}
+
+	public void setLocalidad(String localidad) {
+		this.localidad = localidad;
+	}
+
+	public void setNombreHotel(String nombreHotel) {
+		this.nombreHotel = nombreHotel;
+	}
+
+	public void setHoteles(List<Hotel> hoteles) {
+		this.hoteles = hoteles;
+	}
+
+	public void setFechaEntrada(String fechaEntrada) {
+		this.fechaEntrada = fechaEntrada;
+	}
+
+	public void setFechaSalida(String fechaSalida) {
+		this.fechaSalida = fechaSalida;
+	}
+
+	public void setHotelPinchado(Hotel hotelPinchado) {
+		this.hotelPinchado = hotelPinchado;
+	}
+
+	public void setHabitaciones(List<TipoHabitacion> habitaciones) {
+		this.habitaciones = habitaciones;
+	}
+
+	public void setHabitacionReserva(Map<String, String> habitacionReserva) {
+		this.habitacionReserva = habitacionReserva;
+	}
+
+	public void setNombreReserva(String nombreReserva) {
+		this.nombreReserva = nombreReserva;
+	}
+
+	public void setDniReserva(String dniReserva) {
+		this.dniReserva = dniReserva;
+	}
+
+	public void setNumeroTarjetaReserva(String numeroTarjetaReserva) {
+		this.numeroTarjetaReserva = numeroTarjetaReserva;
+	}
+
+	public void setReservasTipoHabitacion(List<ReservaTipoHabitacion> reservasTipoHabitacion) {
+		this.reservasTipoHabitacion = reservasTipoHabitacion;
+	}
+
+	public void setCodigoReserva(int codigoReserva) {
+		this.codigoReserva = codigoReserva;
+	}
+
+	public void setConsultarHabitacion(IConsultarHabitacion consultarHabitacion) {
+		this.consultarHabitacion = consultarHabitacion;
+	}
+
+	public void setGestionHoteles(IGestionHoteles gestionHoteles) {
+		this.gestionHoteles = gestionHoteles;
+	}
+
+	public void setGestionReservas(IGestionReservas gestionReservas) {
+		this.gestionReservas = gestionReservas;
+	}
+	
+	
+	
 	
 }

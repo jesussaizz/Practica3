@@ -22,21 +22,21 @@
         <h:form>
             <div class="form-item">
                 <h:outputLabel for="nombre">Nombre:</h:outputLabel>
-                <h:inputText id="nombre" value="#{CentralBean.nombreReserva}" required="true"/>
+                <h:inputText id="nombre" value="#{centralBean.nombreReserva}" required="true"/>
             </div>
 
             <div class="form-item">
                 <h:outputLabel for="dni">DNI:</h:outputLabel>
-                <h:inputText id="dni" value="#{CentralBean.dniReserva}" required="true"/>
+                <h:inputText id="dni" value="#{centralBean.dniReserva}" required="true"/>
             </div>
 
             <div class="form-item">
                 <h:outputLabel for="numeroTarjeta">Número Tarjeta:</h:outputLabel>
-                <h:inputText id="numeroTarjeta" value="#{CentralBean.numeroTarjetaReserva}" required="true"/>
+                <h:inputText id="numeroTarjeta" value="#{centralBean.numeroTarjetaReserva}" required="true"/>
             </div>
 
             <div class="form-item">
-                <h:commandButton value="Reservar" action="#{CentralBean.reservar}" />
+                <h:commandButton value="Reservar" action="#{centralBean.reservar}" />
             </div>
         </h:form>
     </div>

@@ -24,11 +24,11 @@
     <h1>Confirmación de Reserva</h1>
 
     <div class="confirmation-container">
-        <h:outputText value="Código de Reserva: #{CentralBean.codigoReserva}" />
+        <h:outputText value="Código de Reserva: #{centralBean.codigoReserva}" />
         
         <div class="button-container">
             <h:form>
-                <h:commandButton value="Cerrar" action="#{CentralBean.cerrarConfirmacion}" />
+                <h:commandButton value="Cerrar" action="#{centralBean.cerrarConfirmacion}" />
             </h:form>
         </div>
     </div>

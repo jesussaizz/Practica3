@@ -13,5 +13,28 @@
   		<artifactId>UCHotelesCommon</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
+  	<!-- Dependencia JSTL en Maven -->
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+    <scope>provided</scope>
+</dependency>
+
+  	
+  	<!-- Dependencia para Jakarta EE -->
+    <dependency>
+        <groupId>jakarta.platform</groupId>
+        <artifactId>jakarta.jakartaee-api</artifactId>
+        <version>9.0.0</version> 
+        <scope>provided</scope>
+    </dependency>
+
+    <!-- Dependencia para JSF -->
+    <dependency>
+        <groupId>org.glassfish</groupId>
+        <artifactId>jakarta.faces</artifactId>
+        <version>3.0.0</version> 
+    </dependency>
   </dependencies>
 </project>
